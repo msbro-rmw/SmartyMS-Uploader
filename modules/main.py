@@ -216,9 +216,9 @@ async def restart_handler(_, m):
 
 
 @bot.on_message(filters.command("owner"))
-async def help_handler(client: Client, message: Message):
+async def owner_handler(client: Client, message: Message):
     db.register_user(message.from_user.id)
-    owner_text = (
+    owner_text = 
         "╔══════════════════════════╗\n"
         "║**My Owner**:@SmartBoy_ApnaMS  ║\n"
         "╚══════════════════════════╝\n\n"
