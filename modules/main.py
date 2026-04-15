@@ -215,6 +215,15 @@ async def restart_handler(_, m):
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
+@bot.on_message(filters.command("owner"))
+async def help_handler(client: Client, message: Message):
+    db.register_user(message.from_user.id)
+    owner_text = (
+        "╔══════════════════════════╗\n"
+        "║**My Owner**:@SmartBoy_ApnaMS  ║\n"
+        "╚══════════════════════════╝\n\n"
+
+        
 @bot.on_message(filters.command(["Mahi"]) )
 async def txt_handler(bot: Client, m: Message):
     editable = await m.reply_text(f"**🔹Hi I am Poweful Lovely TXT Downloader📥 Bot.**\n🔹**Send me the TXT file and Just wait and Watch😚.**")
