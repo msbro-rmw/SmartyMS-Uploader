@@ -223,7 +223,45 @@ async def help_handler(client: Client, message: Message):
         "║**My Owner**:@SmartBoy_ApnaMS  ║\n"
         "╚══════════════════════════╝\n\n"
 
-        
+
+        @bot.on_message(filters.command("broadcast") & filters.private)
+async def broadcast_handler(client: Client, message: Message):
+    if message.from_user.id != OWNER:
+        return await message.reply_text("you are not my owner 😒.")
+
+    # Must be a reply to the content to broadcast
+    if not message.reply_to_message:
+        return await message.reply_text(
+            "📢 **Broadcast Mode**\n\n"
+            "please Boss reply with such a content for brodcasting."
+        )
+
+    content = message.reply_to_message
+    all_users = db.get_all_user_ids()
+
+    if not all_users:
+        return await message.reply_text("❌ No users in database yet.")
+
+    sent = 0
+    failed = 0
+    status_msg = await message.reply_text(f"📤 Broadcasting to `{len(all_users)}` users...")
+
+    for user_id in all_users:
+        try:
+            await content.copy(user_id)
+            sent += 1
+        except Exception:
+            failed += 1
+        await asyncio.sleep(0.05)  # small delay to avoid flood
+
+    await status_msg.edit_text(
+        f"✅ **Broadcast Complete!**\n\n"
+        f"📨 Sent: `{sent}`\n"
+        f"❌ Failed: `{failed}`\n"
+        f"👥 Total: `{len(all_users)}`"
+    )
+
+
 @bot.on_message(filters.command(["Mahi"]) )
 async def txt_handler(bot: Client, m: Message):
     editable = await m.reply_text(f"**🔹Hi I am Poweful Lovely TXT Downloader📥 Bot.**\n🔹**Send me the TXT file and Just wait and Watch😚.**")
