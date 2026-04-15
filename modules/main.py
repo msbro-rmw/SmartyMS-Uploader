@@ -129,13 +129,39 @@ async def main():
         
 class Data:
     START = (
-        "🌟 Welcome Dear🌚💥 {0}! 🌟\n\n"
+        "🌟 Welcome Dear🤝 {0}! 🌟\n\n"
     )
+
+# Inline keyboards for start command
+keyboard = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyboardButton(text="🛠️ Channel", url="https://t.me/Toxic_Official_1"),
+            InlineKeyboardButton(text="👑 Owner", url="https://t.me/MR_Toxic_1"),
+        ],
+        [
+            InlineKeyboardButton(text="🔎 Developer", url="https://t.me/SmartBoy_ApnaMS"),
+        ],
+    ]
+)
+
+
+# ── Credit name href parser ────────────────────────────────────────────────────
+# Supports: "Text|https://url" → "[Text](https://url)" (Telegram markdown link)
+# Normal text with no "|" passes through unchanged.
+def parse_credit(raw: str) -> str:
+    if "|" in raw:
+        parts = raw.split("|", 1)
+        text = parts[0].strip()
+        url  = parts[1].strip()
+        return f"[{text}]({url})"
+    return raw
+# ─────────────────────────────────────────────────────────────────────────────
+
 # Define the start command handler
 @bot.on_message(filters.command("start"))
 async def start(client: Client, msg: Message):
-    user = await client.get_me()
-    mention = user.mention
+    db.register_user(msg.from_user.id)
     start_message = await client.send_message(
         msg.chat.id,
         Data.START.format(msg.from_user.mention)
@@ -154,7 +180,7 @@ async def start(client: Client, msg: Message):
         "Loading features... ⏳\n\n"
         "Progress: [🟥🟥🟥⬜⬜⬜⬜⬜⬜] 25%\n\n"
     )
-    
+
     await asyncio.sleep(1)
     await start_message.edit_text(
         Data.START.format(msg.from_user.mention) +
@@ -170,10 +196,17 @@ async def start(client: Client, msg: Message):
     )
 
     await asyncio.sleep(1)
-    await start_message.edit_text(
-        Data.START.format(msg.from_user.mention) +
-        "Checking status Okay... Command is Private Dear.🌚**Bot Made BY @Lapata_786**🔍\n\n"
-        "Progress:[🟩🟩🟩🟩🟩🟩🟩🟩🟩] 100%\n\n"
+    await start_message.delete()
+    await client.send_photo(
+        msg.chat.id,
+        photo=random.choice(image_list),
+        caption=(
+            Data.START.format(msg.from_user.mention) +
+            "✅ Bot Ready! Command is Private Dear.🌚\n"
+            "**Bot Made BY @SmartBoy_ApnaMS** 🔍\n\n Chek Now Your Subscription /myplan OR For Help /help OR our total users /users is Live Now🤩."
+            "Progress: [🟩🟩🟩🟩🟩🟩🟩🟩🟩] 100%\n\n"
+        ),
+        reply_markup=keyboard
     )
 
 @bot.on_message(filters.command(["stop"]) )
