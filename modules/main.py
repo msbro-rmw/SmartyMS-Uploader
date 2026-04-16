@@ -176,7 +176,7 @@ async def start(client: Client, msg: Message):
             Data.START.format(msg.from_user.mention) +
             "✅ Bot Ready! Command is Private Dear.🌚\n"
             "**Bot Made BY @SmartBoy_ApnaMS** 🔍\n\n"
-            "Check Now Your Subscription /myplan OR For Help /help OR our total users /users is Live Now🤩.\n"
+            "Meet to my /Owner Now🤩.\n"
             "Progress: [🟩🟩🟩🟩🟩🟩🟩🟩🟩] 100%\n\n"
         ),
         reply_markup=keyboard,
@@ -187,7 +187,7 @@ async def start(client: Client, msg: Message):
 # ── /stop command ──────────────────────────────────────────────────────────────
 @bot.on_message(filters.command(["stop"]))
 async def restart_handler(_, m: Message):
-    await m.reply_text("♥️**STOPPED**♥️", True)
+    await m.reply_text("🌺**STOPPED**🌺", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
