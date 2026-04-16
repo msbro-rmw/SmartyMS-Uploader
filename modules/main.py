@@ -66,13 +66,13 @@ my_name = "MS"
 
 # ── Random image list (add/remove URLs freely) ────────────────────────────────
 image_list = [
-    "https://graph.org/file/a7defa3fc5af14e1ef64d-6aaf13e93fca95cfb2.jpg",
-    "https://graph.org/file/0477971c295c3ece935ef-2af948bd4f14c6d1da.jpg",
-    "https://graph.org/file/9664850ce3c6ebaa5007e-e812fa25118aa1a1d7.jpg",
-    "https://graph.org/file/b7466fa9700260aab4f77-a48f2b54d2f8328112.jpg",
-    "https://graph.org/file/2eb3c7ed975b9f9dffaa5-9b991b04b9478b1026.jpg",
-    "https://graph.org/file/e5cbc501850bf1c4351f6-2e913a534c92f5f5f8.jpg",
-    "https://graph.org/file/b48abf3696926fd6f36b3-9e1be53031a43a444d.jpg",
+    "https://graph.org/file/9427b9e9e643d29bcaf33-aa5c8b67c163a9c4a2.jpg",
+    "https://graph.org/file/77656b3519aae1826dd7a-16b8aafc835d99d6f1.jpg",
+    "https://graph.org/file/5e0485a8e5db299de606b-3156b543bd2a963740.jpg",
+    "https://graph.org/file/17bb023117043bb942185-96bf90a807fef3e18d.jpg",
+    "https://graph.org/file/065fa6a3871e2de715e3a-f774a3a3bad574c214.jpg",
+    "https://graph.org/file/7da497bca809e08f89898-bf746d8ce14d321a4f.jpg",
+    "https://graph.org/file/c2f371599c84453293f1a-f1fb1a7bdb872a6e1a.jpg",
 ]
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -244,7 +244,7 @@ async def broadcast_handler(client: Client, msg: Message):
 
 
 # ── /Mahi command ──────────────────────────────────────────────────────────────
-@bot.on_message(filters.command(["Mahi"]))
+@bot.on_message(filters.command(["Cute"]))
 async def txt_handler(bot: Client, m: Message):
     editable = await m.reply_text(f"**🔹Hi I am Poweful Lovely TXT Downloader📥 Bot.**\n🔹**Send me the TXT file and Just wait and Watch😚.**")
     input: Message = await bot.listen(editable.chat.id)
@@ -458,7 +458,7 @@ async def txt_handler(bot: Client, m: Message):
 
 
 # ── /Ali command ───────────────────────────────────────────────────────────────
-@bot.on_message(filters.command(["Ali"]))
+@bot.on_message(filters.command(["Boy"]))
 async def ali_handler(bot: Client, m: Message):
     editable = await m.reply_text(f"**🔹Hi I am Poweful Lovely TXT Downloader📥 Bot.**\n🔹**Send me the TXT file and Just wait and Watch🥵.**")
     input: Message = await bot.listen(editable.chat.id)
