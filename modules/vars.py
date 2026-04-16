@@ -1,11 +1,15 @@
 # SudoR2spr WOODcraft
-# Add your details here and then deploy by clicking on HEROKU Deploy button
+# Add your details here and then deploy
+
 import os
 
-API_ID    = os.environ.get("API_ID", "38498066")
+API_ID    = int(os.environ.get("API_ID", "38498066"))
 API_HASH  = os.environ.get("API_HASH", "c9696114751feacdeb1b4487f5839a1a")
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "") 
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 
-#WEBHOOK = True  # Don't change this
-#PORT = int(os.environ.get("PORT", 8080))  # Default to 8000 if not set
+# ✅ Add this (IMPORTANT)
+OWNER = int(os.environ.get("OWNER", "8703802029"))  # apna Telegram ID daal
 
+# ✅ Fix webhook & port
+WEBHOOK = bool(os.environ.get("WEBHOOK", False))
+PORT = int(os.environ.get("PORT", 8080))
