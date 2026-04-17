@@ -64,6 +64,13 @@ keyboard = InlineKeyboardMarkup(
 
 my_name = "MS"
 
+# ── Live-changeable API endpoints (owner can update via /changeapi1 & /changeapi2) ──
+# API1 — commented block (uses '?' separator before token)
+PWAPI1 = "https://anonymouspwplayerr-3cfbfedeb317.herokuapp.com/pw"
+# API2 — active block line 373 (uses '&' separator before token)
+PWAPI2 = "https://anonymouspwplayerr-3cfbfedeb317.herokuapp.com/pw"
+# ─────────────────────────────────────────────────────────────────────────────
+
 # ── Random image list (add/remove URLs freely) ────────────────────────────────
 image_list = [
     "https://graph.org/file/9427b9e9e643d29bcaf33-aa5c8b67c163a9c4a2.jpg",
@@ -367,10 +374,10 @@ async def txt_handler(bot: Client, m: Message):
              #url = f"https://player.muftukmall.site/?id={id}"
             #elif '/master.mpd' in url:
              #id =  url.split("/")[-2]
-             #url = f"https://anonymouspwplayerr-3cfbfedeb317.herokuapp.com/pw?url={url}?token={raw_text4}"
+             #url = f"{PWAPI1}?url={{url}}?token={{raw_text4}}"
             #url = f"https://madxapi-d0cbf6ac738c.herokuapp.com/{id}/master.m3u8?token={raw_text4}"
             elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
-             url = f"https://anonymouspwplayerr-3cfbfedeb317.herokuapp.com/pw?url={url}&token={raw_text4}"
+             url = f"{PWAPI2}?url={url}&token={raw_text4}"
                      
                                                          
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
@@ -665,6 +672,69 @@ async def ali_handler(bot: Client, m: Message):
     except Exception as e:
         await m.reply_text(e)
     await m.reply_text("𝐀𝐋𝐋 𝐃𝐎𝐍𝐄 REACTIONS khud doge ya kahna padega .✅🔸")
+
+
+# ── /changeapi1 command (owner only) ──────────────────────────────────────────
+# Usage: /changeapi1 https://new-api.example.com/pw
+# '?' is hardcoded before token in the actual URL usage
+@bot.on_message(filters.command("changeapi1") & filters.private)
+async def changeapi1_handler(client: Client, msg: Message):
+    global PWAPI1
+    if msg.from_user.id != OWNER:
+        return await msg.reply_text(
+            "To change your Api1 in your Repository in this format\n\n"
+            "/changeapi1 New Api Here\n\n"
+            "But But But🫡\n"
+            "Sorry you are not my owner😒."
+        )
+
+    parts = msg.text.split(None, 1)
+    if len(parts) < 2 or not parts[1].strip():
+        return await msg.reply_text(
+            "Welcome Boss To change your Api1 in your Repository in this format\n\n"
+            "/changeapi1 New Api Here\n\n"
+            "Send me I will change it.✨"
+        )
+
+    new_api = parts[1].strip()
+    PWAPI1 = new_api
+    await msg.reply_text(
+        f"✅ **Api1 Successfully Changed!**\n\n"
+        f"🔗 **New Api1:**\n`{PWAPI1}`\n\n"
+        f"⚡ Change is Live Now — No restart needed! 🚀"
+    )
+
+
+# ── /changeapi2 command (owner only) ──────────────────────────────────────────
+# Usage: /changeapi2 https://new-api.example.com/pw
+# '&' is hardcoded before token in the actual URL usage
+@bot.on_message(filters.command("changeapi2") & filters.private)
+async def changeapi2_handler(client: Client, msg: Message):
+    global PWAPI2
+    if msg.from_user.id != OWNER:
+        return await msg.reply_text(
+            "To change your Api2 in your Repository in this format\n\n"
+            "/changeapi2 New Api Here\n\n"
+            "But But But🫡\n"
+            "Sorry you are not my owner😒."
+        )
+
+    parts = msg.text.split(None, 1)
+    if len(parts) < 2 or not parts[1].strip():
+        return await msg.reply_text(
+            "Welcome Boss To change your Api2 in your Repository in this format\n\n"
+            "/changeapi2 New Api Here\n\n"
+            "Send me I will change it.✨"
+        )
+
+    new_api = parts[1].strip()
+    PWAPI2 = new_api
+    await msg.reply_text(
+        f"✅ **Api2 Successfully Changed!**\n\n"
+        f"🔗 **New Api2:**\n`{PWAPI2}`\n\n"
+        f"⚡ Change is Live Now — No restart needed! 🚀"
+    )
+
 
 
 bot.run()
