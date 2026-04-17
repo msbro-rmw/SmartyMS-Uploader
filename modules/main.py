@@ -689,14 +689,15 @@ async def changeapi1_handler(client: Client, msg: Message):
         )
 
     parts = msg.text.split(None, 1)
-    if len(parts) < 2 or not parts[1].strip():
-        return await msg.reply_text(
-            "Welcome Boss To change your PW Api in your Repository in this format\n\n"
-            "/changeapi New Api Here\n\n"
-            "Send me I will change it.✨\n\nin this format "https://anonymouspwplayerr-3cfbfedeb317.herokuapp.com/pw"
-        )
+if len(parts) < 2 or not parts[1].strip():
+    return await msg.reply_text(
+        "Welcome Boss To change your PW Api in your Repository in this format\n\n"
+        "/changeapi New Api Here\n\n"
+        "Send me I will change it.✨\n\n"
+        "in this format https://anonymouspwplayerr-3cfbfedeb317.herokuapp.com/pw"
+    )
 
-    new_api = parts[1].strip()
+new_api = parts[1].strip()
     PWAPI1 = new_api
     await msg.reply_text(
         f"✅ **Api1 Successfully Changed!**\n\n"
