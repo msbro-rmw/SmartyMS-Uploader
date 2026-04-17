@@ -698,7 +698,7 @@ if len(parts) < 2 or not parts[1].strip():
     )
 
 new_api = parts[1].strip()
-    PWAPI1 = new_api
+PWAPI1 = new_api
     await msg.reply_text(
         f"✅ **Api1 Successfully Changed!**\n\n"
         f"🔗 **New Api:**\n`{PWAPI1}`\n\n"
