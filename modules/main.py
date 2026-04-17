@@ -120,7 +120,7 @@ async def main():
         
 class Data:
     START = (
-        "🌟 Welcome Dear🙈 {0}! 🌟\n\n"
+        "🌟 Welcome Dear🌚 {0}! 🌟\n\n"
     )
 
 
