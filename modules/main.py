@@ -120,7 +120,7 @@ async def main():
         
 class Data:
     START = (
-        "🌟 Welcome Dear🤝 {0}! 🌟\n\n"
+        "🌟 Welcome Dear🙈 {0}! 🌟\n\n"
     )
 
 
@@ -374,7 +374,7 @@ async def txt_handler(bot: Client, m: Message):
              #url = f"https://player.muftukmall.site/?id={id}"
             #elif '/master.mpd' in url:
              #id =  url.split("/")[-2]
-             #url = f"{PWAPI1}?url={{url}}?token={{raw_text4}}"
+             #url = f"{PWAPI1}?url={url}?token={raw_text4}"
             #url = f"https://madxapi-d0cbf6ac738c.herokuapp.com/{id}/master.m3u8?token={raw_text4}"
             elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
              url = f"{PWAPI2}?url={url}&token={raw_text4}"
