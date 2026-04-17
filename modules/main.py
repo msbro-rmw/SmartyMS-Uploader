@@ -693,7 +693,7 @@ async def changeapi1_handler(client: Client, msg: Message):
         return await msg.reply_text(
             "Welcome Boss To change your PW Api in your Repository in this format\n\n"
             "/changeapi New Api Here\n\n"
-            "Send me I will change it.✨"\n\nin this format "https://anonymouspwplayerr-3cfbfedeb317.herokuapp.com/pw"
+            "Send me I will change it.✨\n\nin this format "https://anonymouspwplayerr-3cfbfedeb317.herokuapp.com/pw"
         )
 
     new_api = parts[1].strip()
