@@ -181,7 +181,7 @@ async def start(client: Client, msg: Message):
         caption=(
             Data.START.format(msg.from_user.mention) +
             "✅ Bot Ready! Command is Private Dear.🌚\n"
-            "**Bot Made BY @SmartBoy_ApnaMS** 🔍\n\n"
+            "**Bot Made BY Developer Brother** 🔍\n\n"
             "Meet to my /Owner Now🤩.\n"
             "Progress: [🟩🟩🟩🟩🟩🟩🟩🟩🟩] 100%\n\n"
         ),
@@ -250,7 +250,7 @@ async def broadcast_handler(client: Client, msg: Message):
 
 
 # ── /Mahi command ──────────────────────────────────────────────────────────────
-@bot.on_message(filters.command(["Cute"]))
+@bot.on_message(filters.command(["Sobi"]))
 async def txt_handler(bot: Client, m: Message):
     editable = await m.reply_text(f"**🔹Hi I am Poweful Lovely TXT Downloader📥 Bot.**\n🔹**Send me the TXT file and Just wait and Watch😚.**")
     input: Message = await bot.listen(editable.chat.id)
